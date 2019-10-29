@@ -79,6 +79,7 @@ class Player {
         this.movement = movement;
         this.sprite = 'img/char-princess-girl.png';
     }
+
 };
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -131,6 +132,10 @@ Player.prototype.handleInput = function(arrowkeys) {
 
     }
 }
+
+Player.prototype.setSprite = function(sprite){
+    this.sprite = sprite
+}
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 
@@ -169,6 +174,10 @@ modal.style.display = 'block';
 
 
 function closeModals() {
+    lives = 5;
+    points = 0;
+    livesGotten.innerText = lives;
+    pointsGotten.innerText = points;
     modal.style.display = 'none';
 }
 
@@ -177,11 +186,8 @@ function gameWonModal() {
 }
 
 function restartGame() {
+    player.setSprite('img/char-boy.png')
     closeModals();
-    lives = 5;
-    points = 0;
-    livesGotten.innerText = lives;
-    pointsGotten.innerText = points;
 }
 
 function hideModalView() {
